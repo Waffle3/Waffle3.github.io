@@ -1,0 +1,43 @@
+<html>
+
+<script>
+
+var secret_number = 0;	
+
+function roll_dice()
+{
+  secret_number = Math.floor(Math.random() * 10);
+}
+
+function button_tellme()
+{
+  var number_typed = document.getElementById('text_box').value;
+
+  if(secret_number == number_typed){
+    alert("Yay! You got the secret number!");
+  }
+  if(secret_number < number_typed){
+    alert("Nope! The secret number is smaller!");
+  }
+  if(secret_number > number_typed){
+    alert("Nope! The secret number is bigger!");  
+  }
+}
+
+</script>
+
+<body>
+
+<p>Please try to guess the secret number!</p>
+
+<input type="button" value="Roll the dice!" onclick="roll_dice();"></input>
+
+
+<input type="text" id="text_box"></input>
+
+<input type="button" value="Tell me if it's less or more!" onclick="button_tellme();"></input>
+
+</body>
+
+
+</html>
