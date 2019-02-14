@@ -30,6 +30,7 @@ function getPartialWord()
   var partial_word = "";
   var i = 0;
 
+
   while (i < random_word.length)
   {
     if (isLetterAlreadyTyped(random_word[i]))
@@ -59,28 +60,30 @@ function pick_word()
   
 }
 
-function button_tellme()
-{
-  var random_words = document.getElementById('text_box').value;
-
-  if(secret_number == number_typed){
-    alert("Good job! The word does have that letter!");
-  }
-  if(secret_number < number_typed){
-    alert("Not quite! The word doesn't have that letter!");
-  }
-  if(secret_number > number_typed){
-    alert("Yay! You got the word!");  
-  }
-}
-
 function key_pressed(event)
 {
   var key = String.fromCharCode(event.which);
   typed_keys.push(key);
 
   var partial_word_element = document.getElementById("partial_word");
-  partial_word_element.innerText = getPartialWord();
+  var partial_word = getPartialWord();
+  partial_word_element.innerText = partial_word;
+
+  var achou_underscore = false;
+  var i = 0;
+  while (i < partial_word.length)
+  {
+    if (partial_word[i] == "_")
+    {
+      achou_underscore = true;
+    }
+    i++;  
+  }
+
+  if (achou_underscore == false)
+  {
+    alert("You woooooooooooooooooooooooooooooooooooooooooooooon!!!!!!!!!!!!!!!!!!!!!");
+  }
 
 }
 
